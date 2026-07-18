@@ -636,3 +636,23 @@ transform:translateY(0);
 .copy{
     color:#777;
 }
+@media (max-width: 768px) {
+
+    section {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .about,
+    .skills,
+    .projects,
+    .contact {
+        display: block !important;
+    }
+
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}

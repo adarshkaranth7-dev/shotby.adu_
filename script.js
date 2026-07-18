@@ -109,3 +109,4 @@ setTimeout(() => {
     }
 
 }, 4000);
+const observer = new IntersectionObserver(...)
