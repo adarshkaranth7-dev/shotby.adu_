@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hire Me | ShotBy.Adu</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="hire.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= Loader ================= -->
+
+    <div id="loader">
+
+        <img src="logo.png" class="loader-logo" alt="Logo">
+
+        <h2>Loading...</h2>
+
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+
+    </div>
+
+    <!-- ================= Background Video ================= -->
+
+    <video autoplay muted loop playsinline id="bgVideo">
+        <source src="2114-154902076_medium.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <!-- ================= Logo ================= -->
+
+    <div class="top-logo">
+
+        <img src="logo.png" alt="ShotBy.Adu Logo">
+
+    </div>
+
+    <!-- ================= Hire Form ================= -->
+
+    <div class="container">
+
+        <h1>Let's Create Something Amazing 🎬</h1>
+
+        <p>
+            Tell me about your project and I'll get back to you within 24 hours.
+        </p>
+
+        <form id="hireForm">
+
+            <input type="text"
+                name="name"
+                placeholder="Your Name"
+                required>
+
+            <input type="email"
+                name="email"
+                placeholder="Your Email"
+                required>
+
+            <input type="tel"
+                name="phone"
+                placeholder="Phone Number">
+
+                
+
+<select id="client_type" name="client_type" required>
+    <option value="">-- who are you ?--</option>
+    <option value="Individual">Individual / Personal</option>
+    <option value="YouTuber">YouTuber</option>
+    <option value="Content Creator">Content Creator</option>
+    <option value="Influencer">Influencer</option>
+    <option value="Business">Business / Company</option>
+    <option value="Brand">Brand</option>
+    <option value="Gaming Creator">Gaming Creator</option>
+    <option value="Wedding Client">Wedding Client</option>
+    <option value="Agency">Agency</option>
+    <option value="Other">Other</option>
+</select>
+
+<input
+    type="text"
+    id="otherClient"
+    name="other_client"
+    placeholder="Please specify..."
+    style="display:none; margin-top:15px;">
+            <input type="text"
+                name="company"
+                placeholder="Company / Brand (optional)">
+
+            <select name="service">
+
+                <option>Video Editing</option>
+
+                <option>YouTube Editing</option>
+
+                <option>Instagram Reels</option>
+
+                <option>Gaming Montage</option>
+
+                <option>Commercial Video</option>
+
+                <option>Wedding Video</option>
+
+                <option>Other</option>
+
+            </select>
+
+            <input type="number"
+                name="budget"
+                placeholder="Project Budget">
+
+            <textarea
+                name="message"
+                rows="6"
+                placeholder="Tell me about your project..."
+                required></textarea>
+
+            <button type="submit">
+
+                🚀 Send Request
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="index.html" class="home-btn">
+
+            ⬅ Back to Home
+
+        </a>
+
+    </div>
+
+    <!-- ================= Footer ================= -->
+
+    <footer class="footer">
+
+        <h2>ShotBy.Adu</h2>
+
+        <p>
+            Available for Freelance • Content Creators • Brands • Businesses
+        </p>
+
+        <div class="social-icons">
+
+            <a href="https://www.instagram.com/shotby.adu_" class="instagram" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://wa.me/919947012567" class="whatsapp" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.threads.net/@shotby.adu_" class="threads" target="_blank">
+                <i class="fa-brands fa-threads"></i>
+            </a>
+
+            <a href="https://www.snapchat.com/add/a_darxh08" class="snapchat" target="_blank">
+                <i class="fa-brands fa-snapchat"></i>
+            </a>
+
+            <a href="mailto:adarshkaranth7@gmail.com" class="email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+        <p class="copy">
+
+            © 2026 ShotBy.Adu • Designed & Edited by Adarsh Karanth
+
+        </p>
+
+    </footer>
+
+    <!-- ================= Scripts ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script src="hire.js"></script>
+
+</body>
+
+</html>
