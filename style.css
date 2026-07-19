@@ -250,6 +250,22 @@ mix-blend-mode:difference;
 transform:translate(-50%,-50%);
 transition:.05s;
 }
+
+@media(max-width:800px){
+
+.hero h1{
+font-size:45px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+nav ul{
+display:none;
+}
+
+}
 .project-btn{
 
 display:inline-block;
