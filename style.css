@@ -250,22 +250,6 @@ mix-blend-mode:difference;
 transform:translate(-50%,-50%);
 transition:.05s;
 }
-
-@media(max-width:800px){
-
-.hero h1{
-font-size:45px;
-}
-
-.about{
-grid-template-columns:1fr;
-}
-
-nav ul{
-display:none;
-}
-
-}
 .project-btn{
 
 display:inline-block;
@@ -635,24 +619,4 @@ transform:translateY(0);
 
 .copy{
     color:#777;
-}
-@media (max-width: 768px) {
-
-    section {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    .about,
-    .skills,
-    .projects,
-    .contact {
-        display: block !important;
-    }
-
-}
-.hidden {
-    opacity: 0;
-    transform: translateY(50px);
 }
