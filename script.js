@@ -11,7 +11,6 @@ document.addEventListener("mousemove", (e) => {
     }
 });
 
-
 // =====================
 // Counter Animation
 // =====================
@@ -19,9 +18,7 @@ document.addEventListener("mousemove", (e) => {
 const counters = document.querySelectorAll(".counter");
 
 const observer = new IntersectionObserver((entries) => {
-
     entries.forEach((entry) => {
-
         if (entry.isIntersecting) {
 
             const counter = entry.target;
@@ -31,33 +28,23 @@ const observer = new IntersectionObserver((entries) => {
             const speed = target / 100;
 
             function update() {
-
                 count += speed;
 
                 if (count < target) {
-
                     counter.innerText = Math.floor(count);
                     requestAnimationFrame(update);
-
                 } else {
-
                     counter.innerText = target + "+";
-
                 }
-
             }
 
             update();
             observer.unobserve(counter);
-
         }
-
     });
-
 });
 
 counters.forEach(counter => observer.observe(counter));
-
 
 // =====================
 // Intro Animation
@@ -68,44 +55,48 @@ const website = document.getElementById("website");
 const flash = document.getElementById("flash");
 const whoosh = document.getElementById("whoosh");
 
-
-// Play Whoosh Sound
+// Play sound
 setTimeout(() => {
-
     if (whoosh) {
         whoosh.play().catch(() => {});
     }
-
 }, 700);
 
-
-// Flash Effect
+// Flash
 setTimeout(() => {
-
     if (flash) {
         flash.classList.add("flash");
     }
-
 }, 3600);
-
 
 // Hide Intro
 setTimeout(() => {
-
     if (intro) {
-
         intro.style.opacity = "0";
 
         setTimeout(() => {
-
             intro.style.display = "none";
-
         }, 1200);
-
     }
 
     if (website) {
         website.style.opacity = "1";
     }
-
 }, 4000);
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+});
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
