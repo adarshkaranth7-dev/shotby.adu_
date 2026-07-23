@@ -188,27 +188,36 @@ document.querySelectorAll('a[href]').forEach((link) => {
     }
 });
 
-// Flash
-setTimeout(() => {
-    if (flash) {
-        flash.classList.add("flash");
-    }
-}, 3600);
+// Play the intro only once per browser tab. Returning to the home page
+// during the same visit shows the website immediately.
+const introAlreadySeen = sessionStorage.getItem("portfolioIntroSeen") === "true";
 
-// Hide Intro
-setTimeout(() => {
-    if (intro) {
-        intro.style.opacity = "0";
+if (introAlreadySeen) {
+    if (intro) intro.style.display = "none";
+    if (website) website.style.opacity = "1";
+} else {
+    sessionStorage.setItem("portfolioIntroSeen", "true");
 
-        setTimeout(() => {
-            intro.style.display = "none";
-        }, 1200);
-    }
+    setTimeout(() => {
+        if (flash) {
+            flash.classList.add("flash");
+        }
+    }, 3600);
 
-    if (website) {
-        website.style.opacity = "1";
-    }
-}, 4000);
+    setTimeout(() => {
+        if (intro) {
+            intro.style.opacity = "0";
+
+            setTimeout(() => {
+                intro.style.display = "none";
+            }, 1200);
+        }
+
+        if (website) {
+            website.style.opacity = "1";
+        }
+    }, 4000);
+}
 
 const backToTop = document.getElementById("backToTop");
 
