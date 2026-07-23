@@ -234,6 +234,29 @@ transform:scale(1.1);
 box-shadow:0 0 30px cyan;
 }
 
+.hero-actions{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:16px;
+}
+
+.upload-btn{
+background:transparent;
+border:2px solid #00eaff;
+color:#00eaff;
+}
+
+.upload-btn:hover{
+background:#00eaff;
+color:#000;
+}
+
+.contact-upload{
+margin:16px 0 0 12px;
+}
+
 section{
 padding:90px 10%;
 }
@@ -434,6 +457,20 @@ font-size:30px;
 
 .hero h1{
 font-size:45px;
+}
+
+.hero-actions{
+gap:12px;
+}
+
+.hero-actions .btn{
+padding:13px 22px;
+}
+
+.contact-upload{
+display:block;
+width:max-content;
+margin:16px auto 0;
 }
 
 .about{

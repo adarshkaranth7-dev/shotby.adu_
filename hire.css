@@ -115,6 +115,33 @@ textarea:focus{
     outline:2px solid #00eaff;
 }
 
+.creative-upload{
+    padding:18px;
+    border:1px dashed rgba(0,234,255,.75);
+    border-radius:12px;
+    background:rgba(0,234,255,.06);
+}
+
+.creative-upload label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:700;
+    color:#00eaff;
+    cursor:pointer;
+}
+
+.creative-upload input{
+    width:100%;
+    padding:10px;
+}
+
+.creative-upload small{
+    display:block;
+    margin-top:10px;
+    color:#bdbdbd;
+    line-height:1.45;
+}
+
 button{
     padding:16px;
     border:none;
