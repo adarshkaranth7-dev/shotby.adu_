@@ -33,7 +33,6 @@ if (profileTrigger && profileModal) {
     const openProfileModal = () => openImageModal("profile.png", "Adarsh Karanth");
 
     profileTrigger.addEventListener("click", openProfileModal);
-    profileTrigger.addEventListener("pointerup", openProfileModal);
 
     profileModal.addEventListener("click", (event) => {
         if (event.target === profileModal) closeProfileModal();
@@ -53,7 +52,6 @@ if (logoTrigger) {
     };
 
     logoTrigger.addEventListener("click", openLogoModal);
-    logoTrigger.addEventListener("pointerup", openLogoModal);
 }
 
 // Discourage casual copying of portfolio media. Media displayed in a browser

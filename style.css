@@ -61,6 +61,7 @@ padding:0;
 border:0;
 background:transparent;
 cursor:zoom-in;
+touch-action:manipulation;
 }
 
 body.light-theme .logo .dark-logo{
@@ -262,6 +263,7 @@ border:0;
 background:transparent;
 font:inherit;
 cursor:zoom-in;
+touch-action:manipulation;
 }
 
 .profile-image{
@@ -410,6 +412,24 @@ padding:10px 6%;
 
 .logo img{
 height:62px;
+}
+
+.image-modal{
+padding:16px;
+}
+
+.image-modal img{
+max-width:92vw;
+max-height:80vh;
+border-radius:14px;
+}
+
+.image-modal-close{
+top:12px;
+right:14px;
+width:42px;
+height:42px;
+font-size:30px;
 }
 
 .hero h1{
@@ -849,4 +869,41 @@ transform:translateY(0);
 
 html {
     scroll-behavior: smooth;
+}
+
+/* These rules sit after the intro defaults so they take effect on phones. */
+@media (max-width:800px){
+    .intro-logo{
+        width:min(72vw,260px);
+    }
+
+    .intro-text{
+        margin-top:16px;
+        padding:0 20px;
+        font-size:18px;
+        letter-spacing:1.5px;
+    }
+
+    .loader{
+        width:72px;
+        height:50px;
+        margin:34px auto;
+        font-size:28px;
+    }
+
+    .loader::before{
+        right:-17px;
+        width:15px;
+        height:23px;
+    }
+
+    .loader-lens{
+        width:14px;
+        height:14px;
+    }
+
+    .loader-rec{
+        top:-23px;
+        font-size:10px;
+    }
 }
