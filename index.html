@@ -28,8 +28,10 @@
 
         <h2 class="intro-text">Creating Cinematic Stories</h2>
 
-        <div class="loader">
-            <div class="loader-fill"></div>
+        <div class="loader" role="status" aria-label="Loading portfolio">
+            <i class="fa-solid fa-video" aria-hidden="true"></i>
+            <span class="loader-lens" aria-hidden="true"></span>
+            <span class="loader-rec" aria-hidden="true">REC</span>
         </div>
 
     </div>
@@ -50,10 +52,10 @@
 
 <nav>
 
-<div class="logo">
+<button class="logo logo-trigger" type="button" aria-label="Open logo image">
     <img class="dark-logo" src="logo.png" alt="Adarsh Karanth Logo">
     <img class="light-logo" src="logo1.png" alt="Adarsh Karanth Logo">
-</div>
+</button>
 
 
 <ul id="primary-menu">
@@ -92,7 +94,9 @@ YouTube Videos, Reels, Commercials, Gaming Videos and Motion Graphics.
 
 <div class="about">
 
-<img class="profile-image" src="profile.png" alt="Adarsh Karanth" role="button" tabindex="0" aria-label="Open profile photo">
+<button class="profile-trigger" type="button" aria-label="Open profile photo">
+    <img class="profile-image" src="profile.png" alt="Adarsh Karanth">
+</button>
 
 <div>
 
@@ -123,7 +127,7 @@ Create videos that people remember.
 
 <div class="image-modal" id="profileModal" role="dialog" aria-modal="true" aria-label="Profile photo" aria-hidden="true">
     <button class="image-modal-close" type="button" aria-label="Close profile photo">&times;</button>
-    <img src="profile.png" alt="Adarsh Karanth">
+    <img id="modalImage" src="profile.png" alt="Adarsh Karanth">
 </div>
 
 <section id="skills">

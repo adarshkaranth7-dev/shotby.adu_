@@ -8,9 +8,20 @@ const cursor = document.querySelector(".cursor");
 // Profile Photo Popup
 // =====================
 
-const profileImage = document.querySelector(".profile-image");
+const profileTrigger = document.querySelector(".profile-trigger");
+const logoTrigger = document.querySelector(".logo-trigger");
 const profileModal = document.getElementById("profileModal");
 const profileModalClose = document.querySelector(".image-modal-close");
+const modalImage = document.getElementById("modalImage");
+
+function openImageModal(source, alt) {
+    if (!profileModal || !modalImage) return;
+    modalImage.src = source;
+    modalImage.alt = alt;
+    profileModal.classList.add("open");
+    profileModal.setAttribute("aria-hidden", "false");
+    profileModalClose?.focus();
+}
 
 function closeProfileModal() {
     if (!profileModal) return;
@@ -18,20 +29,11 @@ function closeProfileModal() {
     profileModal.setAttribute("aria-hidden", "true");
 }
 
-if (profileImage && profileModal) {
-    const openProfileModal = () => {
-        profileModal.classList.add("open");
-        profileModal.setAttribute("aria-hidden", "false");
-        profileModalClose?.focus();
-    };
+if (profileTrigger && profileModal) {
+    const openProfileModal = () => openImageModal("profile.png", "Adarsh Karanth");
 
-    profileImage.addEventListener("click", openProfileModal);
-    profileImage.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openProfileModal();
-        }
-    });
+    profileTrigger.addEventListener("click", openProfileModal);
+    profileTrigger.addEventListener("pointerup", openProfileModal);
 
     profileModal.addEventListener("click", (event) => {
         if (event.target === profileModal) closeProfileModal();
@@ -41,6 +43,17 @@ if (profileImage && profileModal) {
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") closeProfileModal();
     });
+}
+
+if (logoTrigger) {
+    const openLogoModal = () => {
+        const logoSelector = document.body.classList.contains("light-theme") ? ".light-logo" : ".dark-logo";
+        const logoImage = logoTrigger.querySelector(logoSelector);
+        if (logoImage) openImageModal(logoImage.src, logoImage.alt);
+    };
+
+    logoTrigger.addEventListener("click", openLogoModal);
+    logoTrigger.addEventListener("pointerup", openLogoModal);
 }
 
 // Discourage casual copying of portfolio media. Media displayed in a browser
