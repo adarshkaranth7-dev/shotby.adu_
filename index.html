@@ -18,7 +18,7 @@
 </audio>
     <div id="intro">
 
-    <video autoplay muted playsinline id="introVideo">
+    <video autoplay muted playsinline controlslist="nodownload noplaybackrate" disablepictureinpicture id="introVideo">
         <source src="showreel.mp4" type="video/mp4">
     </video>
 
@@ -40,7 +40,7 @@
 
     <!-- EVERYTHING ELSE IN YOUR WEBSITE GOES HERE -->
 
-<video autoplay muted loop id="bgVideo">
+<video autoplay muted loop playsinline controlslist="nodownload noplaybackrate" disablepictureinpicture id="bgVideo">
 <source src="showreel.mp4" type="video/mp4">
 </video>
 
@@ -51,16 +51,25 @@
 <nav>
 
 <div class="logo">
-    <img src="logo.png" alt="Adarsh Karanth Logo">
+    <img class="dark-logo" src="logo.png" alt="Adarsh Karanth Logo">
+    <img class="light-logo" src="logo1.png" alt="Adarsh Karanth Logo">
 </div>
 
 
-<ul>
+<ul id="primary-menu">
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#work">Work</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
+<button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-menu" aria-expanded="false">
+    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+</button>
+
+<button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+</button>
 
 </nav>
 
@@ -83,11 +92,11 @@ YouTube Videos, Reels, Commercials, Gaming Videos and Motion Graphics.
 
 <div class="about">
 
-<img src="profile.png">
+<img class="profile-image" src="profile.png" alt="Adarsh Karanth" role="button" tabindex="0" aria-label="Open profile photo">
 
 <div>
 
-<h2>Hello I'm Adarsh karanth.p</h2>
+<h2>Hello I'm <span>Adarsh karanth.P</span></h2>
 
 <br>
 
@@ -111,6 +120,11 @@ Create videos that people remember.
 </div>
 
 </section>
+
+<div class="image-modal" id="profileModal" role="dialog" aria-modal="true" aria-label="Profile photo" aria-hidden="true">
+    <button class="image-modal-close" type="button" aria-label="Close profile photo">&times;</button>
+    <img src="profile.png" alt="Adarsh Karanth">
+</div>
 
 <section id="skills">
 

@@ -4,6 +4,107 @@
 
 const cursor = document.querySelector(".cursor");
 
+// =====================
+// Profile Photo Popup
+// =====================
+
+const profileImage = document.querySelector(".profile-image");
+const profileModal = document.getElementById("profileModal");
+const profileModalClose = document.querySelector(".image-modal-close");
+
+function closeProfileModal() {
+    if (!profileModal) return;
+    profileModal.classList.remove("open");
+    profileModal.setAttribute("aria-hidden", "true");
+}
+
+if (profileImage && profileModal) {
+    const openProfileModal = () => {
+        profileModal.classList.add("open");
+        profileModal.setAttribute("aria-hidden", "false");
+        profileModalClose?.focus();
+    };
+
+    profileImage.addEventListener("click", openProfileModal);
+    profileImage.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openProfileModal();
+        }
+    });
+
+    profileModal.addEventListener("click", (event) => {
+        if (event.target === profileModal) closeProfileModal();
+    });
+
+    profileModalClose?.addEventListener("click", closeProfileModal);
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeProfileModal();
+    });
+}
+
+// Discourage casual copying of portfolio media. Media displayed in a browser
+// cannot be made completely impossible to save or screen-record.
+document.querySelectorAll("img, video").forEach((media) => {
+    media.setAttribute("draggable", "false");
+    media.addEventListener("contextmenu", (event) => event.preventDefault());
+    media.addEventListener("dragstart", (event) => event.preventDefault());
+});
+
+// =====================
+// Colour Theme
+// =====================
+
+const themeToggle = document.querySelector(".theme-toggle");
+const savedTheme = localStorage.getItem("theme");
+const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+
+function setTheme(theme) {
+    const isLight = theme === "light";
+    document.body.classList.toggle("light-theme", isLight);
+
+    if (themeToggle) {
+        themeToggle.setAttribute("aria-pressed", String(isLight));
+        themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+        themeToggle.innerHTML = `<i class="fa-solid fa-${isLight ? "sun" : "moon"}" aria-hidden="true"></i>`;
+    }
+}
+
+setTheme(savedTheme || (prefersLight ? "light" : "dark"));
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        const nextTheme = document.body.classList.contains("light-theme") ? "dark" : "light";
+        setTheme(nextTheme);
+        localStorage.setItem("theme", nextTheme);
+    });
+}
+
+// =====================
+// Mobile Navigation
+// =====================
+
+const menuToggle = document.querySelector(".menu-toggle");
+const primaryMenu = document.getElementById("primary-menu");
+
+if (menuToggle && primaryMenu) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = primaryMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        menuToggle.innerHTML = `<i class="fa-solid fa-${isOpen ? "xmark" : "bars"}" aria-hidden="true"></i>`;
+    });
+
+    primaryMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            primaryMenu.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+            menuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+        });
+    });
+}
+
 document.addEventListener("mousemove", (e) => {
     if (cursor) {
         cursor.style.left = e.clientX + "px";
@@ -55,12 +156,26 @@ const website = document.getElementById("website");
 const flash = document.getElementById("flash");
 const whoosh = document.getElementById("whoosh");
 
-// Play sound
-setTimeout(() => {
-    if (whoosh) {
-        whoosh.play().catch(() => {});
+let lastWhooshTime = 0;
+
+function playWhoosh() {
+    if (!whoosh) return;
+
+    const now = Date.now();
+    if (now - lastWhooshTime < 450) return;
+
+    lastWhooshTime = now;
+    whoosh.currentTime = 0;
+    whoosh.play().catch(() => {});
+}
+
+// Only play the sound when a click takes the visitor to another page or website.
+document.querySelectorAll('a[href]').forEach((link) => {
+    const destination = link.getAttribute('href');
+    if (destination && !destination.startsWith('#')) {
+        link.addEventListener('click', playWhoosh);
     }
-}, 700);
+});
 
 // Flash
 setTimeout(() => {
